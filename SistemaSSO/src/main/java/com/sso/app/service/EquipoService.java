@@ -4,11 +4,13 @@ import com.sso.app.entity.Equipo;
 import com.sso.app.repository.EquipoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 @AllArgsConstructor
 public class EquipoService {
     private final EquipoRepository equipoRepository;

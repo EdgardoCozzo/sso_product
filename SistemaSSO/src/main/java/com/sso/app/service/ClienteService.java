@@ -4,11 +4,13 @@ import com.sso.app.entity.Cliente;
 import com.sso.app.repository.ClienteRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 @AllArgsConstructor
 public class ClienteService {
     private final ClienteRepository clienteRepository;

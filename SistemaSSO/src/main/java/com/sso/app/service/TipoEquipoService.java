@@ -5,11 +5,13 @@ import com.sso.app.entity.TipoEquipo;
 import com.sso.app.repository.TipoEquipoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 @AllArgsConstructor
 public class TipoEquipoService {
 

@@ -1,0 +1,49 @@
+
+services:
+  # Servicio del backend Spring Boot
+  app_sso:
+    build: ./sso/SistemaSSO
+    mem_limit: 512m
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:mysql://ssoapp:3306/sso_db?createDataBaseIfNotExist=true&serverTimezone=UTC
+      DB_USER_NAME: root
+      DB_PASSWORD: root
+    restart: always
+    depends_on:
+      ssoapp:
+        condition: service_healthy
+    networks:
+      - sso-network
+
+  # Servicio de MySQL
+  ssoapp:
+    image: mysql:8.0.33
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: sso_db
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
+    networks:
+      - sso-network
+
+  # Servicio de la aplicación React
+  react-app:
+    build:
+      context: ./sso-context # La ruta al directorio donde está el código React
+    ports:
+      - "3000:80"  # Puerto del host:puerto del contenedor
+    depends_on:
+      - app_sso
+    networks:
+      - sso-network
+
+networks:
+  sso-network:

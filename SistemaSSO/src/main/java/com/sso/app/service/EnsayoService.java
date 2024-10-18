@@ -4,11 +4,13 @@ import com.sso.app.entity.Ensayo;
 import com.sso.app.repository.EnsayoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 @AllArgsConstructor
 public class EnsayoService {
     private final EnsayoRepository ensayoRepository;
