@@ -2,7 +2,7 @@
 services:
   # Servicio del backend Spring Boot
   app_sso:
-    build: ./sso/SistemaSSO
+    build: ./SistemaSSO
     mem_limit: 512m
     ports:
       - "8080:8080"
