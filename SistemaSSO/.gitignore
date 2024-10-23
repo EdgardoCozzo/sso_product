@@ -1,17 +1,7 @@
-# Ignora toda la carpeta target en general
-/target/
+HELP.md
 
-# Pero permite subir la carpeta target dentro de SistemaSSO
-!/SistemaSSO/target/
 
-# Maven wrapper
-!.mvn/wrapper/maven-wrapper.jar
-
-# Ignorar carpetas target dentro de src/main y src/test excepto si son necesarias
-!**/src/main/**/target/
-!**/src/test/**/target/
-
-# STS (Spring Tool Suite) - Archivos específicos de desarrollo
+### STS ###
 .apt_generated
 .classpath
 .factorypath
@@ -20,23 +10,21 @@
 .springBeans
 .sts4-cache
 
-# IntelliJ IDEA - Ignorar archivos y carpetas específicos
+### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
 
-# NetBeans - Ignorar carpetas y archivos generados por NetBeans
+### NetBeans ###
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-
-# Ignorar carpetas de build, excepto las de src/main y src/test
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-# VS Code - Archivos específicos de Visual Studio Code
+### VS Code ###
 .vscode/
